@@ -13,6 +13,8 @@ import SwiftUI
 
 // Теперь можно отдельно тестировать список
 
+// MARK: - ExerciseListView
+
 struct ExerciseListView: View {
     @EnvironmentObject private var store: Store
     

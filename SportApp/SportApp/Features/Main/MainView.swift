@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-// Главный экран приложения
-// композиция всего экрана
+// MARK: - MainView
 
-struct MainView: View {  // Или SportAppMainView
+struct MainView: View {
     @EnvironmentObject private var store: Store
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Поиск
                 SearchBarView(
                     text: Binding(
                         get: { store.state.searchText },
@@ -26,18 +24,16 @@ struct MainView: View {  // Или SportAppMainView
                 .padding(.horizontal)
                 .padding(.vertical, 8)
                 
-                // Панель фильтров
                 FilterBarView()
                     .environmentObject(store)
                 
                 Divider()
                 
-                // Результаты поиска
-                ExerciseListView()  // <- Теперь это отдельный компонент
+                ExerciseListView()
                     .environmentObject(store)
             }
             .navigationTitle("Sport App")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             if store.state.exercises.isEmpty {

@@ -10,6 +10,8 @@ import SwiftUI
 // чистое отображение результатов (чистый презентационный компонент)
 // Теперь можно передать моковые данные в ExerciseResultsView
 
+// MARK: - ExerciseResultsView
+
 struct ExerciseResultsView: View {
     let exercises: [Exercise]
     
