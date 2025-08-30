@@ -27,16 +27,18 @@ struct FilterBarView: View {
                 
                 // Clear button
                 if store.state.hasActiveFilters {
-                        // Clear all button
-                        Button(action: {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                store.clearAllFilters()
-                            }
-                        }) {
-                            Label("Clear", systemImage: "xmark.circle.fill")
-                                .font(.caption)
-                                .foregroundColor(.red)
+                    // Clear all button
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            store.clearAllFilters()
                         }
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 22))  // Увеличили размер
+                            .foregroundColor(.red)
+                            .frame(width: 44, height: 44)  // Минимальная touch target 44x44
+                            .contentShape(Rectangle())  // Вся область кликабельна
+                    }
                     .transition(.scale.combined(with: .opacity))
                 }
             }

@@ -13,7 +13,6 @@ enum APIConfig {
     static let exercisesEndpoint = "/exercises"
     
     // TODO: Получи ключ на https://api-ninjas.com/api/exercises
-    // ВАЖНО: Не коммить ключ в git!
     static let apiKey = "mHgXgvSADq9GAxk5ICrBFA==dwSZmcx4DewiWjBR"
     
     static var headers: [String: String] {

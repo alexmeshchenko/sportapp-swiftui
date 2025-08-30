@@ -13,7 +13,7 @@ struct SportApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ExerciseListView()
+            MainView()
                 .environmentObject(store)
         }
     }
