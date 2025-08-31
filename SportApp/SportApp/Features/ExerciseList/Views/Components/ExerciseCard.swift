@@ -25,7 +25,7 @@ struct ExerciseCard: View {
                         Label {
                             Text(formatType(exercise.type))
                         } icon: {
-                            Image(systemName: "figure.mixed.cardio")
+                            Image(systemName: ExerciseType.categoryIcon)
                         }
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -60,7 +60,7 @@ struct ExerciseCard: View {
                 Label {
                     Text(formatMuscle(exercise.muscle))
                 } icon: {
-                    Image(systemName: "figure.strengthtraining.traditional")
+                    Image(systemName: MuscleGroup.categoryIcon)
                 }
                 .font(.subheadline)
                 .foregroundColor(.blue)

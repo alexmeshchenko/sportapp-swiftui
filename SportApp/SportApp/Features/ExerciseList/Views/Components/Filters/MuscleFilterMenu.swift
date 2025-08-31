@@ -41,7 +41,7 @@ struct MuscleFilterMenu: View {
             }
         } label: {
             FilterButton(
-                icon: "figure.arms.open",
+                icon: MuscleGroup.categoryIcon,
                 title: currentMuscleTitle,
                 isActive: store.state.selectedMuscle != nil
             )

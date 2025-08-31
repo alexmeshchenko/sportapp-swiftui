@@ -5,7 +5,6 @@
 //  Created by Aleksandr Meshchenko on 30.08.25.
 //
 
-
 import Foundation
 
 class ExerciseService {

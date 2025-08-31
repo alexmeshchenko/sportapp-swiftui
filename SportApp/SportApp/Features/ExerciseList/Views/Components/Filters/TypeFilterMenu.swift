@@ -38,7 +38,7 @@ struct TypeFilterMenu: View {
             }
         } label: {
             FilterButton(
-                icon: "figure.run",
+                icon: ExerciseType.categoryIcon,
                 title: currentTypeTitle,
                 isActive: store.state.selectedType != nil
             )

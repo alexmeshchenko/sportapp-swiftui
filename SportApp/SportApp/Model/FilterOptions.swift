@@ -18,6 +18,9 @@ enum ExerciseType: String, CaseIterable {
     case stretching = "stretching"
     case strongman = "strongman"
     
+    // Общая иконка для категории "Type"
+    static let categoryIcon = "figure.run"
+    
     var displayName: String {
         switch self {
         case .cardio: return "🏃 Cardio"
@@ -27,15 +30,6 @@ enum ExerciseType: String, CaseIterable {
         case .strength: return "💪 Strength"
         case .stretching: return "🧘 Stretching"
         case .strongman: return "💯 Strongman"
-        }
-    }
-    
-    var icon: String {
-        switch self {
-        case .cardio: return "figure.run"
-        case .strength: return "figure.strengthtraining.traditional"
-        case .stretching: return "figure.yoga"
-        default: return "figure.mixed.cardio"
         }
     }
 }
@@ -58,6 +52,9 @@ enum MuscleGroup: String, CaseIterable {
     case quadriceps = "quadriceps"
     case traps = "traps"
     case triceps = "triceps"
+    
+    // Общая иконка для категории "Muscle"
+    static let categoryIcon = "figure.strengthtraining.traditional"
     
     var displayName: String {
         switch self {
@@ -87,11 +84,14 @@ enum DifficultyLevel: String, CaseIterable {
     case intermediate = "intermediate"
     case expert = "expert"
     
+    // Общая иконка для категории "Difficulty"
+    static let categoryIcon = "chart.bar.fill"
+
     var displayName: String {
         switch self {
-        case .beginner: return "🌱 Beginner"
-        case .intermediate: return "📈 Intermediate"
-        case .expert: return "🔥 Expert"
+        case .beginner: return "Beginner"
+        case .intermediate: return "Intermediate"
+        case .expert: return "Expert"
         }
     }
     
