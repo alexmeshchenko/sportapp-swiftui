@@ -18,10 +18,8 @@ struct DifficultyFilterMenu: View {
     var body: some View {
         Menu {
             // Clear selection
-            Button(action: {
+            Button("All Levels") {
                 store.selectDifficulty(nil)
-            }) {
-                Label("All Levels", systemImage: "square.dashed")
             }
             
             Divider()
@@ -39,8 +37,8 @@ struct DifficultyFilterMenu: View {
                                 difficultyIndicator(for: difficulty)
                             }
                         } icon: {
-                            Image(systemName: difficultyIcon(for: difficulty))
-                                .foregroundColor(difficultyColor(for: difficulty))
+                            Image(systemName: difficulty.icon)
+                                .foregroundColor(difficulty.color)
                         }
                         
                         if store.state.selectedDifficulty == difficulty.rawValue {
@@ -53,7 +51,7 @@ struct DifficultyFilterMenu: View {
             }
         } label: {
             FilterButton(
-                icon: "chart.bar.fill",
+                icon: DifficultyLevel.categoryIcon,
                 title: currentDifficultyTitle,
                 isActive: store.state.selectedDifficulty != nil,
                 activeColor: currentDifficultyColor
@@ -70,50 +68,22 @@ struct DifficultyFilterMenu: View {
     }
     
     private var currentDifficultyColor: Color {
-        guard let selectedDifficulty = store.state.selectedDifficulty else {
+        guard let selectedDifficulty = store.state.selectedDifficulty,
+              let difficulty = DifficultyLevel(rawValue: selectedDifficulty) else {
             return .blue
         }
-        
-        switch selectedDifficulty {
-        case "beginner": return .green
-        case "intermediate": return .orange
-        case "expert": return .red
-        default: return .blue
-        }
+        return difficulty.color
     }
     
     private func difficultyIndicator(for difficulty: DifficultyLevel) -> some View {
         HStack(spacing: 2) {
             ForEach(0..<3) { index in
                 Circle()
-                    .fill(index < difficultyStars(for: difficulty) ? 
-                          difficultyColor(for: difficulty) : Color.gray.opacity(0.3))
+                    .fill(index < difficulty.level ?
+                          difficulty.color : Color.gray.opacity(0.3))
                     .frame(width: 6, height: 6)
             }
         }
     }
-    
-    private func difficultyStars(for difficulty: DifficultyLevel) -> Int {
-        switch difficulty {
-        case .beginner: return 1
-        case .intermediate: return 2
-        case .expert: return 3
-        }
-    }
-    
-    private func difficultyIcon(for difficulty: DifficultyLevel) -> String {
-        switch difficulty {
-        case .beginner: return "1.circle.fill"
-        case .intermediate: return "2.circle.fill"
-        case .expert: return "3.circle.fill"
-        }
-    }
-    
-    private func difficultyColor(for difficulty: DifficultyLevel) -> Color {
-        switch difficulty {
-        case .beginner: return .green
-        case .intermediate: return .orange
-        case .expert: return .red
-        }
-    }
+
 }

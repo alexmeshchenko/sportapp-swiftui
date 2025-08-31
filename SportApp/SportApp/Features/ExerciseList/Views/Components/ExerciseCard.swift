@@ -96,21 +96,17 @@ struct ExerciseCard: View {
     }
     
     private var difficultyColor: Color {
-        switch exercise.difficulty {
-        case "beginner": return .green
-        case "intermediate": return .orange
-        case "expert": return .red
-        default: return .gray
+        guard let difficulty = DifficultyLevel(rawValue: exercise.difficulty) else {
+            return .gray
         }
+        return difficulty.color
     }
     
     private var difficultyIcon: String {
-        switch exercise.difficulty {
-        case "beginner": return "1.circle.fill"
-        case "intermediate": return "2.circle.fill"
-        case "expert": return "3.circle.fill"
-        default: return "questionmark.circle.fill"
+        guard let difficulty = DifficultyLevel(rawValue: exercise.difficulty) else {
+            return "questionmark.circle.fill"
         }
+        return difficulty.icon
     }
     
     private func formatType(_ type: String) -> String {
