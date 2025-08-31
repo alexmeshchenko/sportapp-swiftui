@@ -32,8 +32,18 @@ struct MainView: View {
                 ExerciseListView()
                     .environmentObject(store)
             }
-            .navigationTitle("Sport App")
+            //.navigationTitle("Sport App")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Image(systemName: "figure.run.circle.fill")
+                            .foregroundColor(.blue)
+                        Text("Sport App")
+                            .font(.headline)
+                    }
+                }
+            }
         }
         .task {
             if store.state.exercises.isEmpty {

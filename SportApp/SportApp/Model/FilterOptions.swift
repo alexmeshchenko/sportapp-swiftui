@@ -61,22 +61,22 @@ enum MuscleGroup: String, CaseIterable {
     
     var displayName: String {
         switch self {
-        case .abdominals: return "🧘 Abs"
-        case .biceps: return "💪 Biceps"
-        case .chest: return "🫁 Chest"
-        case .glutes: return "🍑 Glutes"
-        case .quadriceps: return "🦵 Quads"
-        case .hamstrings: return "🦵 Hamstrings"
-        case .calves: return "🦵 Calves"
-        case .lowerBack: return "🔙 Lower Back"
-        case .middleBack: return "🔙 Mid Back"
-        case .triceps: return "💪 Triceps"
-        case .traps: return "🤷 Traps"
-        case .lats: return "🔙 Lats"
-        case .forearms: return "💪 Forearms"
-        case .neck: return "🦒 Neck"
-        case .abductors: return "🦵 Abductors"
-        case .adductors: return "🦵 Adductors"
+        case .abdominals: return "Abs"
+        case .biceps: return "Biceps"
+        case .chest: return "Chest"
+        case .glutes: return "Glutes"
+        case .quadriceps: return "Quadriceps"
+        case .hamstrings: return "Hamstrings"
+        case .calves: return "Calves"
+        case .lowerBack: return "Lower Back"
+        case .middleBack: return "Middle Back"
+        case .triceps: return "Triceps"
+        case .traps: return "Traps"
+        case .lats: return "Lats"
+        case .forearms: return "Forearms"
+        case .neck: return "Neck"
+        case .abductors: return "Abductors"
+        case .adductors: return "Adductors"
         }
     }
 }

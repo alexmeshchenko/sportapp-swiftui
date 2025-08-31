@@ -9,23 +9,19 @@ import SwiftUI
 
 // Фильтр по мышцам
 // Группировка по категориям (Upper Body, Lower Body, Core & Back)
+// MARK: - MuscleFilterMenu
 
 struct MuscleFilterMenu: View {
     @EnvironmentObject private var store: Store
-    @State private var searchText = ""
     
     var body: some View {
         Menu {
-            // Clear selection
-            Button(action: {
+            Button("All Muscles") {
                 store.selectMuscle(nil)
-            }) {
-                Label("All Muscles", systemImage: "square.dashed")
             }
             
             Divider()
             
-            // Группируем мышцы по категориям для удобства
             Section("Upper Body") {
                 ForEach(upperBodyMuscles, id: \.self) { muscle in
                     muscleButton(muscle)
@@ -59,9 +55,7 @@ struct MuscleFilterMenu: View {
             HStack {
                 Text(muscle.displayName)
                 if store.state.selectedMuscle == muscle.rawValue {
-                    Spacer()
                     Image(systemName: "checkmark")
-                        .foregroundColor(.blue)
                 }
             }
         }
@@ -72,10 +66,9 @@ struct MuscleFilterMenu: View {
               let muscle = MuscleGroup.allCases.first(where: { $0.rawValue == selectedMuscle }) else {
             return "Muscle"
         }
-        return muscle.displayName.components(separatedBy: " ").last ?? "Muscle"
+        return muscle.displayName  
     }
     
-    // Группировка мышц для лучшей организации в меню
     private var upperBodyMuscles: [MuscleGroup] {
         [.biceps, .triceps, .chest, .forearms, .traps]
     }
