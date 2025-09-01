@@ -104,20 +104,4 @@ enum DifficultyLevel: String, CaseIterable {
         case .expert: return .red
         }
     }
-    
-    var icon: String {
-        switch self {
-        case .beginner: return "1.circle.fill"
-        case .intermediate: return "2.circle.fill"
-        case .expert: return "3.circle.fill"
-        }
-    }
-    
-    var level: Int {  // <- Новое свойство для индикатора
-        switch self {
-        case .beginner: return 1
-        case .intermediate: return 2
-        case .expert: return 3
-        }
-    }
 }

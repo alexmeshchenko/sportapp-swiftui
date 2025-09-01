@@ -47,10 +47,10 @@ struct ExerciseCard: View {
                 
                 // Difficulty indicator
                 VStack(alignment: .trailing, spacing: 4) {
-                    Image(systemName: difficultyIcon)
+                    Image(systemName: DifficultyLevel.categoryIcon)
                         .foregroundColor(difficultyColor)
                     Text(exercise.difficulty.capitalized)
-                        .font(.caption2)
+                        .font(.caption)
                         .foregroundColor(difficultyColor)
                 }
             }
@@ -100,13 +100,6 @@ struct ExerciseCard: View {
             return .gray
         }
         return difficulty.color
-    }
-    
-    private var difficultyIcon: String {
-        guard let difficulty = DifficultyLevel(rawValue: exercise.difficulty) else {
-            return "questionmark.circle.fill"
-        }
-        return difficulty.icon
     }
     
     private func formatType(_ type: String) -> String {

@@ -24,25 +24,17 @@ struct DifficultyFilterMenu: View {
             
             Divider()
             
-            // Difficulty options с визуальными индикаторами
             ForEach(DifficultyLevel.allCases, id: \.self) { difficulty in
                 Button(action: {
                     store.selectDifficulty(difficulty.rawValue)
                 }) {
                     HStack {
-                        Label {
-                            HStack {
-                                Text(difficulty.displayName)
-                                // Визуальный индикатор сложности
-                                difficultyIndicator(for: difficulty)
-                            }
-                        } icon: {
-                            Image(systemName: difficulty.icon)
-                                .foregroundColor(difficulty.color)
-                        }
+                        Text(difficulty.displayName)
+                            .foregroundColor(.primary)
+                        
+                        Spacer()
                         
                         if store.state.selectedDifficulty == difficulty.rawValue {
-                            Spacer()
                             Image(systemName: "checkmark")
                                 .foregroundColor(.blue)
                         }
@@ -74,16 +66,4 @@ struct DifficultyFilterMenu: View {
         }
         return difficulty.color
     }
-    
-    private func difficultyIndicator(for difficulty: DifficultyLevel) -> some View {
-        HStack(spacing: 2) {
-            ForEach(0..<3) { index in
-                Circle()
-                    .fill(index < difficulty.level ?
-                          difficulty.color : Color.gray.opacity(0.3))
-                    .frame(width: 6, height: 6)
-            }
-        }
-    }
-
 }

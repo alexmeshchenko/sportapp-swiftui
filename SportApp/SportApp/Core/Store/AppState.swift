@@ -52,12 +52,4 @@ struct AppState {
         selectedDifficulty != nil
     }
     
-//    var activeFiltersCount: Int {
-//        var count = 0
-//        if !searchText.isEmpty { count += 1 }
-//        if selectedType != nil { count += 1 }
-//        if selectedMuscle != nil { count += 1 }
-//        if selectedDifficulty != nil { count += 1 }
-//        return count
-//    }
 }
